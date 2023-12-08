@@ -58,6 +58,10 @@ app.get('/weather', (request, response) => {
 
 // helper functions //
 
+app.use((error, request, response) => {
+  console.log(`${error} this is the error function`);
+  response.status(500).send(error);
+});
 
 // start the server //
 app.listen(PORT, () => {
