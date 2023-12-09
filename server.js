@@ -2,7 +2,7 @@
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
-// const data = require('./data/weather.json');
+// const data = require('./data/weather.json'); // don't need anymore in lab 8?
 const axios = require('axios');
 
 // middleware //
@@ -10,6 +10,7 @@ const axios = require('axios');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const WEATHER_KEY = process.env.WEATHER_API_KEY;
+// const MOVIE_KEY = process.env.MOVIE_API_KEY; // lab 8.2 addition
 
 app.use(cors());
 
@@ -60,6 +61,20 @@ app.get('/weather', async (request, response) => {
   }
 });
 
+
+// app.get('/movies', async (request, response) => { // lab 8.2 addition
+//   const { searchQuery } = request.query;
+
+//   if (searchQuery) {
+//     const movie = await axios.get();
+//     if (movie) {
+//       response.json((())
+//       );
+//       else {
+//         response.status(404).json({ error: 'cannot find movie data'});
+//       }
+//     }
+//   });
 
 // helper functions //
 
